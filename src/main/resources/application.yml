@@ -1,0 +1,46 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ai-hello-world
+  ai:
+    openai:
+      # 这里换成你的 API Key (OpenAI / DeepSeek / Kimi 都可以)
+      api-key:
+      # 如果用 OpenAI 原生，这就不用填。
+      # 如果用 DeepSeek，填: https://api.deepseek.com
+      # 如果用 Kimi，填: https://api.moonshot.cn/v1
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          # 模型名称 (gpt-3.5-turbo, deepseek-chat, moonshot-v1-8k)
+          model: deepseek-chat
+      embedding:
+        enabled: false
+    zhipuai:
+      api-key:
+      embedding:
+        enabled: true # 开启向量
+      chat:
+        enabled: false # 关闭聊天（聊天还用 DeepSeek）
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+
+logging:
+  level:
+    org.springframework.ai: DEBUG
+    com: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
