@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class VectorStoreConfig {
 
-    @Bean
+/*    @Bean
     public VectorStore vectorStore(EmbeddingModel embeddingModel) {
         // 这里会自动注入智谱的 EmbeddingModel
         return new SimpleVectorStore(embeddingModel);
-    }
+    }*/
 }
